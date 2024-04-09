@@ -21,11 +21,14 @@ class UserFactory extends Factory {
      * @return array<string, mixed>
      */
     public function definition(): array {
-        // first_name, last_name, email, phone, password, address, dob, role, status, email_verified_at, remember_token
+        $firstName = $this->faker->firstName();
+        $lastName = $this->faker->lastName();
+        $email = strtolower($firstName) . '.' . strtolower($lastName) . '@gmail.com';
+
         return [
-            'first_name' => $this->faker->firstName(),
-            'last_name' => $this->faker->lastName(),
-            'email' => $this->faker->unique()->safeEmail(),
+            'first_name' => $firstName,
+            'last_name' => $lastName,
+            'email' => $email,
             'phone' => $this->faker->phoneNumber(),
             'password' => static::$password ??= Hash::make('password'),
             'address' => $this->faker->address(),
