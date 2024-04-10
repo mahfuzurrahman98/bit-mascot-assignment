@@ -21,7 +21,7 @@ Follow these steps to set up the Inventory Management System locally:
 1. Clone the repository:
 
    ```
-   git clone <repository-url>
+   git clone https://github.com/mahfuzurrahman98/bit-mascot-assignment.git
    ```
 2. Navigate into the server directory:
 
