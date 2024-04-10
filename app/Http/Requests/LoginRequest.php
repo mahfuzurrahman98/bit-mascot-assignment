@@ -25,4 +25,11 @@ class LoginRequest extends FormRequest {
             'password' => ['required'],
         ];
     }
+
+    public function failedValidation(Validator $validator) {
+        // dd($validator->errors());
+        throw new HttpResponseException(
+            response()->redirectToRoute('login')->withErrors($validator)
+        );
+    }
 }
