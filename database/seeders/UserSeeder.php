@@ -11,7 +11,17 @@ class UserSeeder extends Seeder {
      * Run the database seeds.
      */
     public function run(): void {
-        // create 65 users
-        User::factory(65)->create();
+        User::create([
+            'first_name' => 'Admin',
+            'email' => 'admin@localhost.local',
+            'password' => 'admin',
+            'address' => 'Sylhet, Bangladesh',
+            'phone' => '01797216574',
+            'dob' => '2000-01-01',
+            'role' => 1
+        ]);
+
+        // create 95 users
+        User::factory(95)->create();
     }
 }
