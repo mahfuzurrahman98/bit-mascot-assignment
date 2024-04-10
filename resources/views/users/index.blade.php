@@ -10,15 +10,15 @@
                 value="{{ request()->query('search') }}" placeholder="Search">
         </form>
     </div>
-    <table class="table mt-3">
-        <thead class="table-light">
+    <table class="table table-striped table-hover mt-3">
+        <thead class="table-secondary">
             <tr>
-                <th scope="col">Name</th>
-                <th scope="col">Address</th>
-                <th scope="col">Phone</th>
-                <th scope="col">Email</th>
-                <th scope="col">Date of Birth</th>
-                <th scope="col">ID Verification</th>
+                <th class="fw-semibold">Name</th>
+                <th class="fw-semibold">Address</th>
+                <th class="fw-semibold">Phone</th>
+                <th class="fw-semibold">Email</th>
+                <th class="fw-semibold">Date of Birth</th>
+                <th class="fw-semibold">ID Verification</th>
             </tr>
         </thead>
         <tbody>
@@ -28,8 +28,12 @@
                     <td>{{ $user->address }}</td>
                     <td>{{ $user->phone }}</td>
                     <td>{{ $user->email }}</td>
-                    <td>{{ $user->dob }}</td>
-                    <td>{{ $user->id_verification_file }}</td>
+                    <td>{{ date('d/m/Y', strtotime($user->dob)) }}</td>
+                    <td class="text-center">
+                        <a href="{{ $user->id_verification_file_url }}" target="_blank">
+                            <img src="{{ asset('assets/icons/file-pdf.svg') }}" alt="PDF Icon" width="24">
+                        </a>
+                    </td>
                 </tr>
             @endforeach
         </tbody>
