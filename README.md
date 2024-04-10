@@ -1,8 +1,8 @@
-# Bit Mascot Task Assignmet
+# Bit Mascot Task Assignment
 
 ## Description
 
-A simple user portal using basic Laravel, where only registered users can login using email and password. The project was assigned by Bit Mascot as part of the evaluation process for the Software Engineer position.
+A simple user portal using basic Laravel, where only registered users can log in using email and password. The project was assigned by Bit Mascot as part of the evaluation process for the Software Engineer position.
 
 ## Prerequisites
 
@@ -39,7 +39,7 @@ Follow these steps to set up the Inventory Management System locally:
    ```
    php artisan db:seed --class=UserSeeder
    ```
-6. Create symbolic link:
+6. Create a symbolic link:
 
    ```
    php artisan storage:link
@@ -58,9 +58,9 @@ Follow these steps to set up the Inventory Management System locally:
 
 10. Start the PHP server:
 
-   ```
-   php artisan serve
-   ```
+       ```
+       php artisan serve
+       ```
 
 Now, you should be able to access the Inventory Management System in your web browser.
 
