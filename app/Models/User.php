@@ -43,4 +43,13 @@ class User extends Authenticatable {
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    // an accessor for name
+    public function getNameAttribute(): string {
+        $name = $this->first_name;
+        if ($this->last_name) {
+            $name .= ' ' . $this->last_name;
+        }
+        return $name;
+    }
 }
