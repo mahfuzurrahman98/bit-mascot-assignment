@@ -2,9 +2,8 @@
 
 namespace Database\Factories;
 
-use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Str;
+use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\User>
@@ -35,7 +34,9 @@ class UserFactory extends Factory {
             'phone' => $phone,
             'password' => static::$password ??= Hash::make('password'),
             'address' => $this->faker->address(),
-            'dob' => $this->faker->date()
+            'dob' => $this->faker->date(),
+            // same file for everyone
+            'id_verification_file' => 'sample_file.pdf',
         ];
     }
 
