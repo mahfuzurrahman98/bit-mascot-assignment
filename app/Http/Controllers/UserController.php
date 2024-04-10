@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use App\Http\Requests\CreateUserRequest;
 
 class UserController extends Controller {
     /**
@@ -46,7 +48,26 @@ class UserController extends Controller {
      * Store a newly created resource in storage.
      */
     public function store(CreateUserRequest $request) {
-        //
+        // upload the file first
+        $file = $request->file('id_verification_file');
+        $fileExtension = $file->clientExtension();
+        $fileName = time() . '_' . Str::random(10) . '.' . $fileExtension;
+
+        // upload to storage
+        $file->move(storage_path('app/public'), $fileName);
+
+        $user = User::create([
+            'first_name' => $request->first_name,
+            'last_name' => $request->last_name,
+            'email' => $request->email,
+            'password' => bcrypt($request->password),
+            'address' => $request->address,
+            'phone' => $request->phone,
+            'id_verification_file' => $fileName,
+            'dob' => $request->dob
+        ]);
+
+        return redirect()->back()->withSuccess('User created successfully');
     }
 
     /**
