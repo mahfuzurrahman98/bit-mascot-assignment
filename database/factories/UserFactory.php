@@ -25,11 +25,14 @@ class UserFactory extends Factory {
         $lastName = $this->faker->lastName();
         $email = strtolower($firstName) . '.' . strtolower($lastName) . '@gmail.com';
 
+        // take a phone from the faker, and replace anything in that rather than numbers with blank
+        $phone = preg_replace('/[^0-9]/', '', $this->faker->phoneNumber());
+
         return [
             'first_name' => $firstName,
             'last_name' => $lastName,
             'email' => $email,
-            'phone' => $this->faker->phoneNumber(),
+            'phone' => $phone,
             'password' => static::$password ??= Hash::make('password'),
             'address' => $this->faker->address(),
             'dob' => $this->faker->date()
