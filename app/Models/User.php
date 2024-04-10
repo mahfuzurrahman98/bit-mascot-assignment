@@ -52,4 +52,9 @@ class User extends Authenticatable {
         }
         return $name;
     }
+
+    // an accessor for file url
+    public function getIdVerificationFileUrlAttribute(): string {
+        return asset('storage/' . $this->id_verification_file);
+    }
 }
