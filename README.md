@@ -52,15 +52,15 @@ Follow these steps to set up the Inventory Management System locally:
    ```
 9. Start the development server:
 
-```
+   ```
    npm run dev
-```
+   ```
 
 10. Start the PHP server:
 
-```
+   ```
    php artisan serve
-```
+   ```
 
 Now, you should be able to access the Inventory Management System in your web browser.
 
