@@ -23,53 +23,44 @@ Follow these steps to set up the Inventory Management System locally:
    ```
    git clone https://github.com/mahfuzurrahman98/bit-mascot-assignment.git
    ```
-2. Navigate into the server directory:
-
-   ```
-   cd server
-   ```
-3. Install the PHP dependencies:
+2. Install the PHP dependencies:
 
    ```
    composer update
    ```
-4. Edit the database variables in the `.env` file.
-5. Run the database migrations:
+3. Edit the database variables in the `.env` file.
+4. Run the database migrations:
 
    ```
    php artisan migrate
    ```
-6. Seed the database:
+5. Seed the database:
 
    ```
    php artisan db:seed --class=UserSeeder
    ```
-7. Create symbolic link:
+6. Create symbolic link:
 
    ```
    php artisan storage:link
    ```
-8. Set up SMTP credentials for email. If you do not have any SMTP setup, use the one provided in `.env.example`
-9. In a new terminal window, navigate into the client directory:
+7. Set up SMTP credentials for email. If you do not have any SMTP setup, use the one provided in `.env.example`
+8. Install the Node.js dependencies:
 
-    ```
-    cd client
-    ```
-10. Install the Node.js dependencies:
-
-    ```
-    npm install
-    ```
-11. Start the development server:
+   ```
+   npm install
+   ```
+9. Start the development server:
 
 ```
    npm run dev
 ```
-12. Start the PHP server:
 
-   ```
+10. Start the PHP server:
+
+```
    php artisan serve
-   ```
+```
 
 Now, you should be able to access the Inventory Management System in your web browser.
 
