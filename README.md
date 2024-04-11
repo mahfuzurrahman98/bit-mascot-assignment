@@ -62,7 +62,12 @@ Follow these steps to set up the project locally:
        php artisan serve
        ```
 
-Now, you should be able to access the project in your web browser.
+Now, you should be able to access the project in your web browser. To access the admin portal of the application you need to use the credentials:
+
+    
+    Email: admin@localhost.local
+    Password: amdin
+    
 
 ## Technologies Used
 
