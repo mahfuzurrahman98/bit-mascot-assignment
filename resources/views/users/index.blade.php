@@ -5,9 +5,13 @@
 @section('content')
     <div class="d-flex justify-content-between border-bottom border-2 pb-2">
         <h1 class="fs-4">User List</h1>
+
         <form role="search" action="{{ route('users.index') }}">
-            <input type="text" name="search" id="search" class="form-control form-control-sm"
-                value="{{ request()->query('search') }}" placeholder="Search">
+            <div class="input-wrapper">
+                <input type="text" name="search" id="search" class="form-control form-control-sm"
+                    value="{{ request()->query('search') }}" placeholder="Search">
+                <img src="{{ asset('assets') }}/icons/magnifying-glass.svg" alt="Search Icon" class="search-icon">
+            </div>
         </form>
     </div>
     <table class="table table-striped table-hover mt-3">
