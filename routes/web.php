@@ -34,7 +34,8 @@ Route::middleware('guest')->group(function () {
 Route::middleware('auth')->group(function () {
     Route::get('/admin', [UserController::class, 'index'])->name('users.index')->middleware('is_admin');
     Route::get('/profile', [AuthController::class, 'profile'])->name('profile')->middleware('is_user');
-    Route::get('change-password', [AuthController::class, 'changePassword'])->name('password.change')->middleware('is_user');
+    Route::get('change-password', [AuthController::class, 'showPasswordForm'])->name('password.form')->middleware('is_user');
+    Route::put('password', [AuthController::class, 'updatePassword'])->name('password.update')->middleware('is_user');
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 });
 

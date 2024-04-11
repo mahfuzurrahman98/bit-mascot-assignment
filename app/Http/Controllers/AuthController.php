@@ -11,6 +11,7 @@ use App\Http\Requests\LoginRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller {
     public function login() {
@@ -99,11 +100,31 @@ class AuthController extends Controller {
 
         // authenticate the user
         Auth::login($user);
-        return redirect()->route('profile');
+        return redirect()->route('profile')->withSuccess('You are logged in!');
     }
 
     public function profile(Request $request) {
         return view('auth.profile');
+    }
+
+    public function showPasswordForm() {
+        return view('auth.password');
+    }
+
+    public function updatePassword(Request $request) {
+        $request->validate([
+            'old_password' => 'required',
+            'password' => 'required|confirmed'
+        ]);
+
+        $user = Auth::user();
+        if (Hash::check($request->old_password, $user->password)) {
+            $user->password = Hash::make($request->password);
+            $user->save();
+            return redirect()->route('profile')->withSuccess('Your password has been updated!');
+        } else {
+            return back()->withErrors(['old_password' => 'The old password is incorrect']);
+        }
     }
 
     public function logout(Request $request) {
