@@ -44,9 +44,17 @@
                 </div>
             </div>
             <div class="row mb-3">
-                <div class="col-sm-3">Birth Date:</div>
+                <div class="col-sm-3">Birthdate:</div>
                 <div class="col-sm-9">
                     {{ \Carbon\Carbon::parse($user->dob)->format('F j, Y') }}
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-sm-3">ID Verification:</div>
+                <div class="col-sm-9">
+                    <a href="{{ $user->id_verification_file_url }}" target="_blank">
+                        <img src="{{ asset('assets/icons/file-pdf.svg') }}" alt="PDF Icon" width="24">
+                    </a>
                 </div>
             </div>
         </div>
