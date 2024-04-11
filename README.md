@@ -16,7 +16,7 @@ Before running the system locally, make sure you have the following prerequisite
 
 ## Setup
 
-Follow these steps to set up the Inventory Management System locally:
+Follow these steps to set up the project locally:
 
 1. Clone the repository:
 
@@ -39,7 +39,7 @@ Follow these steps to set up the Inventory Management System locally:
    ```
    php artisan db:seed --class=UserSeeder
    ```
-6. Create a symbolic link:
+6. Create a symbolic link to access the uploaded files publicly:
 
    ```
    php artisan storage:link
@@ -62,7 +62,7 @@ Follow these steps to set up the Inventory Management System locally:
        php artisan serve
        ```
 
-Now, you should be able to access the Inventory Management System in your web browser.
+Now, you should be able to access the project in your web browser.
 
 ## Technologies Used
 
