@@ -44,8 +44,14 @@ class User extends Authenticatable {
         'password' => 'hashed',
     ];
 
-    // an accessor for name
-    public function getNameAttribute(): string {
+    /**
+     * Returns the user's full name.
+     *
+     * @return string
+     */
+    public function getNameAttribute(): string
+    {
+        // Constructs the user's full name from first name and last name
         $name = $this->first_name;
         if ($this->last_name) {
             $name .= ' ' . $this->last_name;
@@ -53,8 +59,14 @@ class User extends Authenticatable {
         return $name;
     }
 
-    // an accessor for file url
-    public function getIdVerificationFileUrlAttribute(): string {
+    /**
+     * Returns the url of the uploaded ID verification file.
+     *
+     * @return string
+     */
+    public function getIdVerificationFileUrlAttribute(): string
+    {
+        // returns the url of the uploaded ID verification file
         return asset('storage/' . $this->id_verification_file);
     }
 }

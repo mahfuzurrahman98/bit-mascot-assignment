@@ -11,6 +11,7 @@ class UserSeeder extends Seeder {
      * Run the database seeds.
      */
     public function run(): void {
+        // create admin
         User::create([
             'first_name' => 'Admin',
             'email' => 'admin@localhost.local',

@@ -22,6 +22,8 @@ class UserFactory extends Factory {
     public function definition(): array {
         $firstName = $this->faker->firstName();
         $lastName = $this->faker->lastName();
+
+        // make an email from the first and last name
         $email = strtolower($firstName) . '.' . strtolower($lastName) . '@gmail.com';
 
         // take a phone from the faker, and replace anything in that rather than numbers with blank
