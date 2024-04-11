@@ -39,6 +39,7 @@ Follow these steps to set up the project locally:
    ```
    php artisan db:seed --class=UserSeeder
    ```
+   After seeding the database with fake users, just move the `/sample_file.pdf` to `/storage/app/public` directory
 6. Create a symbolic link to access the uploaded files publicly:
 
    ```
