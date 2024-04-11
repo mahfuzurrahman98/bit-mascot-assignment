@@ -37,7 +37,8 @@
 
                         <div class="col-md-12">
                             <label for="otp" class="form-label">Verification Code</label>
-                            <input type="text" class="form-control" name="otp" id="otp" required />
+                            <input type="text" class="form-control" name="otp" id="otp"
+                                oninput="sanitizeCode(this)" required />
                             @error('otp')
                                 <div class="text-danger fs-7">{{ $message }}</div>
                             @enderror
@@ -54,6 +55,13 @@
             </div>
         </div>
     </div>
+
+    <script>
+        const sanitizeCode = (input) => {
+            // max 6 digits
+            input.value = input.value.replace(/\D/g, '').slice(0, 6);
+        }
+    </script>
 </body>
 
 </html>
