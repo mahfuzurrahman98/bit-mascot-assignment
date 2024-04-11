@@ -27,24 +27,17 @@ Route::middleware('guest')->group(function () {
     // Login
     Route::get('/', [AuthController::class, 'login'])->name('login');
     Route::post('/authenticate', [AuthController::class, 'authenticate'])->name('authenticate');
-    Route::get('email-verification', [AuthController::class, 'showEmailVerificationForm'])->name('email.form');
-    Route::post('verify-email', [AuthController::class, 'verifyEmail'])->name('email.verify');
+    Route::get('/email-verification', [AuthController::class, 'showEmailVerificationForm'])->name('email.form');
+    Route::post('/verify-email', [AuthController::class, 'verifyEmail'])->name('email.verify');
 });
 
 Route::middleware('auth')->group(function () {
+    // Admin
     Route::get('/admin', [UserController::class, 'index'])->name('users.index')->middleware('is_admin');
+
+    // User
     Route::get('/profile', [AuthController::class, 'profile'])->name('profile')->middleware('is_user');
-    Route::get('change-password', [AuthController::class, 'showPasswordForm'])->name('password.form')->middleware('is_user');
-    Route::put('password', [AuthController::class, 'updatePassword'])->name('password.update')->middleware('is_user');
+    Route::get('/change-password', [AuthController::class, 'showPasswordForm'])->name('password.form')->middleware('is_user');
+    Route::put('/password', [AuthController::class, 'updatePassword'])->name('password.update')->middleware('is_user');
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
-});
-
-// test
-Route::get('/test', function () {
-    Mail::to('mdmahfuzurrahmanarif@gmail.com')->send(new SendOTP('123456'));
-});
-
-// just return the view
-Route::get('/email', function () {
-    return view('email-templates.otp', ['otp' => '123456']);
 });
