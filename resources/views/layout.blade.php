@@ -71,7 +71,7 @@
                         class="d-block p-3 border-bottom border-2 border-dark text-decoration-none text-dark">
                         Profile Page
                     </a>
-                    <a href="{{ route('password.change') }}"
+                    <a href="{{ route('password.form') }}"
                         class="d-block p-3 border-bottom border-2 border-dark text-decoration-none text-dark">
                         Password Change
                     </a>
@@ -79,6 +79,12 @@
             </div>
 
             <div class="w-100 p-3">
+                @if (session('success'))
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        {{ session('success') }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                @endif
                 @yield('content')
             </div>
         </div>
